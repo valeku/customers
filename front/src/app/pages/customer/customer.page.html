@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar class="toolbar-color">
+    <ion-title class="center">Customer</ion-title>
+    <div slot="start">
+      <ion-button (click)="back()" class="left">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </div>
+    <ion-button *ngIf="showUpdate" (click)="updateCustomer()" slot="end" class="right">
+      <ion-icon name="share-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="showDetail" (click)="editCustomer()" slot="end" class="right">
+      <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-button *ngIf="showAdd" (click)="saveCustomer()" slot="end" class="right">
+      <ion-icon name="save-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item 
+    [ngClass]="showDetail ? 'input-disable' : 'input'"
+    lines="none"
+  >
+    <ion-label>Number:</ion-label>
+    <ion-input
+      type="number"
+      [placeholder]="!showDetail ? 'Enter Number' : ''"
+      [readonly]="showDetail ? true : null"
+      [(ngModel)]="customer.number"
+    ></ion-input> 
+  </ion-item>
+  <ion-item 
+    [ngClass]="showDetail ? 'input-disable' : 'input'"
+    lines="none"
+  >
+    <ion-label>Name:</ion-label>
+    <ion-input
+      [placeholder]="!showDetail ? 'Enter Name' : ''"
+      [readonly]="showDetail ? true : null"
+      [(ngModel)]="customer.name"
+    ></ion-input> 
+  </ion-item>
+  <ion-item 
+    [ngClass]="showDetail ? 'input-disable' : 'input'"
+    lines="none"
+  >
+    <ion-label>Address:</ion-label>
+    <ion-input
+      [placeholder]="!showDetail ? 'Enter Address' : ''"
+      [readonly]="showDetail ? true : null"
+      [(ngModel)]="customer.address"
+    ></ion-input> 
+  </ion-item>
+  <ion-item 
+    [ngClass]="showDetail ? 'input-disable' : 'input'"
+    lines="none"
+  >
+    <ion-label>Phone:</ion-label>
+    <ion-input
+      [placeholder]="!showDetail ? 'Enter Phone' : ''"
+      [readonly]="showDetail ? true : null"
+      [(ngModel)]="customer.phone"
+    ></ion-input> 
+  </ion-item>
+  
+</ion-content>
+
+
